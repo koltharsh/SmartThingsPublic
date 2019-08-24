@@ -297,7 +297,7 @@ private dayString(Date date) {
 		df.setTimeZone(location.timeZone)
 	}
 	else {
-		df.setTimeZone(TimeZone.getTimeZone("America/New_York"))
+		df.setTimeZone(TimeZone.getTimeZone("America/Chicago"))
 	}
 	df.format(date)
 }
@@ -330,7 +330,7 @@ private getDaysOk() {
 			df.setTimeZone(location.timeZone)
 		}
 		else {
-			df.setTimeZone(TimeZone.getTimeZone("America/New_York"))
+			df.setTimeZone(TimeZone.getTimeZone("America/Chicago"))
 		}
 		def day = df.format(new Date())
 		result = days.contains(day)
@@ -369,7 +369,7 @@ private loadText() {
 	if (location.timeZone || zipCode) {
 		def weather = getWeatherFeature("forecast", zipCode)
 		def current = getWeatherFeature("conditions", zipCode)
-		def isMetric = location.temperatureScale == "C"
+		def isMetric = location.temperatureScale == "F"
 		def delim = ""
 		def sb = new StringBuilder()
 		list(forecastOptions).sort().each {opt ->
